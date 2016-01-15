@@ -4,12 +4,12 @@ import styles from './App.css';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {test: 'foo'};
+    this.state = {message: 'foo'};
   }
   render() {
     return (
       <div className={styles.app}>
-        bar
+        {this.state.message} bar
       </div>
     );
   }
