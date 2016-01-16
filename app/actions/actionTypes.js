@@ -1,0 +1,5 @@
+
+module.exports = {
+  RESET_MESSAGE: 'RESET_MESSAGE',
+  NEW_MESSAGE: 'NEW_MESSAGE'
+}
