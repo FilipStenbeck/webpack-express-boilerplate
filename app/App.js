@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { render } from 'react-dom'
-import styles from './App.css';
 import { createStore } from 'redux'
-import { appReducer } from './appReducer'
+import styles from './App.css';
+import { appReducer } from './reducers/appReducer';
+import { newMessage, resetMessage } from './actions/actionCreators';
 
 const store = createStore(appReducer);
 
@@ -18,15 +19,15 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    store.dispatch({type: 'NEW_MESSAGE', payload: this.props.message})
+    store.dispatch(newMessage(this.props.message));
   }
 
   onReset = function () {
-    store.dispatch({type: 'RESET_MESSAGE', payload: 'erp derp'})
+    store.dispatch(resetMessage());
   };
 
   handleChange = function (event) {
-    store.dispatch({type: 'NEW_MESSAGE', payload: event.target.value})
+    store.dispatch(newMessage(event.target.value));
   };
 
   render() {
