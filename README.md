@@ -1,5 +1,5 @@
-# webpack-express-boilerplate
-A boilerplate for running a Webpack workflow in Node express
+# webpack-express-react-redux-boilerplate
+A boilerplate for running a Webpack workflow in Node express using React & Redux
 
 Please read the following article: [The ultimate Webpack setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup) to know more about this boilerplate.
 
@@ -19,6 +19,9 @@ or just export the files:
 
 ### React by default
 The project runs with React by default and hot replacement of changes to the modules. Currently it is on 0.14.3.
+
+### Redux by default
+The project runs Redux with react. Not using the React bindings by deafult instead use subscription from the store.
 
 ### CSS Modules
 CSS files loaded into components are locally scoped and you can point to class names with javascript. You can also compose classes together, also from other files. These are also hot loaded. Read more about them [here](http://glenmaddern.com/articles/css-modules).
