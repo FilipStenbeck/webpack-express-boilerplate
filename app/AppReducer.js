@@ -17,6 +17,10 @@ let appReducer = function appReducer(state, action) {
     });
   }
 
+  case 'RESET_MESSAGE': {
+    return Object.assign({}, initialState);
+  }
+
   default: {
     return Object.assign({}, state, {
       message: state.message

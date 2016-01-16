@@ -11,22 +11,30 @@ const store = createStore(appReducer);
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {message: props.message};
+    this.state = store.getState();
     store.subscribe(() => {
       this.setState(store.getState())
-    }
-    );
+    });
   }
 
-  onNewMessage = function () {
-    store.dispatch({type: 'NEW_MESSAGE', payload: 'Erp derp'})
+  componentDidMount() {
+    store.dispatch({type: 'NEW_MESSAGE', payload: this.props.message})
+  }
+
+  onReset = function () {
+    store.dispatch({type: 'RESET_MESSAGE', payload: 'erp derp'})
+  };
+
+  handleChange = function (event) {
+    store.dispatch({type: 'NEW_MESSAGE', payload: event.target.value})
   };
 
   render() {
     return (
       <div className={styles.app}>
         <h2>{this.state.message}</h2>
-        <button onClick={this.onNewMessage}>New message</button>
+        <button onClick={this.onReset}>Reset message</button>
+        <input type="text" onChange={this.handleChange} />
       </div>
     );
   }
