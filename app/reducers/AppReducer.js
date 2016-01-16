@@ -1,4 +1,5 @@
 'use strict';
+import * as types from '../actions/actionTypes';
 
 const initialState = {
   message: 'foobar'
@@ -11,13 +12,13 @@ let appReducer = function appReducer(state, action) {
 
   switch (action.type) {
 
-  case 'NEW_MESSAGE': {
+  case types.NEW_MESSAGE: {
     return Object.assign({}, state, {
       message: action.payload
     });
   }
 
-  case 'RESET_MESSAGE': {
+  case types.RESET_MESSAGE: {
     return Object.assign({}, initialState);
   }
 
