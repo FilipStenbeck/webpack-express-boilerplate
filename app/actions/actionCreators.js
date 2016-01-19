@@ -9,12 +9,6 @@ const newMessage = (message) => {
   };
 };
 
-const resetMessage = () => {
-  return {
-    type: types.RESET_MESSAGE
-  };
-};
-
 const gamesLoaded = (games) => {
   return {
     type: types.GAMES_LOADED,
@@ -39,7 +33,6 @@ const gameInfoLoaded = (info) => {
 module.exports = {
   loading,
   newMessage,
-  resetMessage,
   gamesLoaded,
   gameInfoLoaded
 };

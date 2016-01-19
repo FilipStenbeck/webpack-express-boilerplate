@@ -6,11 +6,11 @@ import styles from '../App.css';
 import { appReducer } from '../reducers/appReducer';
 import { gameInfoLoaded, newMessage, loading } from '../actions/actionCreators';
 
+const request = require('browser-request');
+const he = require('he');
 const storeUtil = require('../util/store');
-
 const store = storeUtil.getStore(appReducer);
 
-const request = require('browser-request');
 
 export default class GameItem extends React.Component {
 
@@ -24,9 +24,10 @@ export default class GameItem extends React.Component {
       if (er) {
         throw er;
       }
-      let game = JSON.parse(body);
-      store.dispatch(newMessage(game.result[0].name));
-      store.dispatch(gameInfoLoaded(game.result[0]));
+      let game = JSON.parse(body).result[0];
+      game.description = he.decode(game.description);
+      store.dispatch(newMessage(game.name));
+      store.dispatch(gameInfoLoaded(game));
     });
   }
 

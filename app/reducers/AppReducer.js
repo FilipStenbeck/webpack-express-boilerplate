@@ -29,12 +29,6 @@ let appReducer = function appReducer(state, action) {
     });
   }
 
-  case types.RESET_MESSAGE: {
-    return Object.assign({}, state, {
-      message: ''
-    });
-  }
-
   case types.GAMES_LOADED: {
     return Object.assign({}, state, {
       message: 'Popular games',
