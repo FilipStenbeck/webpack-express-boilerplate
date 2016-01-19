@@ -22,6 +22,13 @@ const gamesLoaded = (games) => {
   };
 };
 
+const loading = () => {
+  return {
+    type: types.LOADING,
+    payload: 'Loading...'
+  };
+};
+
 const gameInfoLoaded = (info) => {
   return {
     type: types.GAME_INFO_LOADED,
@@ -30,6 +37,7 @@ const gameInfoLoaded = (info) => {
 };
 
 module.exports = {
+  loading,
   newMessage,
   resetMessage,
   gamesLoaded,

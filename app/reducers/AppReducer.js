@@ -17,6 +17,12 @@ let appReducer = function appReducer(state, action) {
 
   switch (action.type) {
 
+  case types.LOADING: {
+    return Object.assign({}, state, {
+      message: action.payload
+    });
+  }
+
   case types.NEW_MESSAGE: {
     return Object.assign({}, state, {
       message: action.payload

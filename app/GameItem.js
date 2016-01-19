@@ -4,7 +4,7 @@ import React from 'react';
 import { render } from 'react-dom'
 import styles from './App.css';
 import { appReducer } from './reducers/appReducer';
-import { gameInfoLoaded, newMessage } from './actions/actionCreators';
+import { gameInfoLoaded, newMessage, loading } from './actions/actionCreators';
 
 const storeUtil = require('./util/store');
 
@@ -19,7 +19,7 @@ export default class GameItem extends React.Component {
   }
 
   getGameInfo(event) {
-    store.dispatch(newMessage('Loading...'));
+    store.dispatch(loading());
     request('http://mini-geek-service.appspot.com/gameinfo?id=' + event.target.id + '&alt=json', function(er, response, body) {
       if (er) {
         throw er;

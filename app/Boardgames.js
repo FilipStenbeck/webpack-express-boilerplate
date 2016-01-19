@@ -8,7 +8,7 @@ import styles from './App.css';
 import App from './App.js';
 import GameItem from './GameItem.js';
 
-import { gamesLoaded } from './actions/actionCreators';
+import {loading, gamesLoaded } from './actions/actionCreators';
 import { appReducer } from './reducers/appReducer';
 
 const storeUtil = require('./util/store');
@@ -29,6 +29,7 @@ export default class Boardgames extends React.Component {
   }
 
   getboardgames(callback) {
+    store.dispatch(loading());
     request('http://mini-geek-service.appspot.com/hotgames?alt=json', function(er, response, body) {
       if (er) {
         throw er;
