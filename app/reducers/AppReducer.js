@@ -48,10 +48,7 @@ let appReducer = function appReducer(state, action) {
     });
   }
   default: {
-    return Object.assign({}, state, {
-      message: state.message,
-      games: state.games
-    });
+    return Object.assign({}, state);
   }
   }
 };
