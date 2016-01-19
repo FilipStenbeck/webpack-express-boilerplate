@@ -11,16 +11,25 @@ const he = require('he');
 const storeUtil = require('../util/store');
 const store = storeUtil.getStore(appReducer);
 
-
 export default class GameItem extends React.Component {
 
   constructor(props) {
     super(props);
   }
-
   getGameInfo(event) {
-    window.scrollTo(0,0);
     store.dispatch(loading());
+
+    function scrollToTop(scrollDuration) {
+      var scrollStep = -window.scrollY / (scrollDuration / 15);
+      var scrollInterval = setInterval(function() {
+          if (window.scrollY !== 0) {
+            window.scrollBy(0, scrollStep);
+          } else {
+            clearInterval(scrollInterval);
+          }
+        }, 15);
+    }
+    scrollToTop(500);
     request('http://mini-geek-service.appspot.com/gameinfo?id=' + event.target.id + '&alt=json', function(er, response, body) {
       if (er) {
         throw er;
