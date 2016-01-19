@@ -42,12 +42,13 @@ export default class Boardgames extends React.Component {
     this.getboardgames(triggerLoaded);
   }
 
+  //{this.state.games.map((game) => <li className={styles.games} key={game.id}><GameItem id={game.id} name={game.name}/></li>)}
   render() {
     return (
     <div>
-      <ul>
-        {this.state.games.map((game) => <li className={styles.games} key={game.id}><GameItem id={game.id} name={game.name}/></li>)}
-      </ul>
+
+        {this.state.games.map((game) => <div className="row"> <GameItem id={game.id} name={game.name}/></div>)}
+
     </div>
     );
   }

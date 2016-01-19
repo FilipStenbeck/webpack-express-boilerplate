@@ -30,8 +30,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="well well-lg header">
-        <strong>{this.state.message}</strong>
+        <div className={styles.header}>
+        <h2>{this.state.message}</h2>
       </div>
 
       <div className="row">

@@ -34,7 +34,7 @@ export default class GameItem extends React.Component {
   render() {
     return (
       <div>
-        <a id={this.props.id} name={this.props.name} onClick={this.getGameInfo} href={'#/' + this.props.id}>{this.props.name}</a>
+        <button className={styles.fancybutton} id={this.props.id} name={this.props.name} onClick={this.getGameInfo} href={'#/' + this.props.id}>{this.props.name}</button>
       </div>
     );
   }
