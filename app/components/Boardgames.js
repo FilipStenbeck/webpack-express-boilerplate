@@ -47,7 +47,7 @@ export default class Boardgames extends React.Component {
     return (
     <div>
 
-        {this.state.games.map((game) => <div className="row"> <GameItem id={game.id} name={game.name}/></div>)}
+        {this.state.games.map((game) => <div className="row" key={game.id}> <GameItem id={game.id} name={game.name}/></div>)}
 
     </div>
     );

@@ -19,6 +19,7 @@ export default class GameItem extends React.Component {
   }
 
   getGameInfo(event) {
+    window.scrollTo(0,0);
     store.dispatch(loading());
     request('http://mini-geek-service.appspot.com/gameinfo?id=' + event.target.id + '&alt=json', function(er, response, body) {
       if (er) {
