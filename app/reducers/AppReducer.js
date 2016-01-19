@@ -2,7 +2,12 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-  message: ''
+  message: '',
+  games: [],
+  info: {
+    thumbnail: null,
+    description: ''
+  }
 };
 
 let appReducer = function appReducer(state, action) {
@@ -19,17 +24,32 @@ let appReducer = function appReducer(state, action) {
   }
 
   case types.RESET_MESSAGE: {
-    return Object.assign({}, initialState);
+    return Object.assign({}, state, {
+      message: ''
+    });
   }
 
+  case types.GAMES_LOADED: {
+    return Object.assign({}, state, {
+      message: 'Popular games',
+      games: action.payload
+    });
+  }
+
+  case types.GAME_INFO_LOADED: {
+    return Object.assign({}, state, {
+      info: action.payload
+    });
+  }
   default: {
     return Object.assign({}, state, {
-      message: state.message
+      message: state.message,
+      games: state.games
     });
   }
   }
-}
+};
 
 module.exports = {
   appReducer
-}
+};

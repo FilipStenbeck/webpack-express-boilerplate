@@ -8,10 +8,11 @@ import styles from './App.css';
 import App from './App.js';
 import GameItem from './GameItem.js';
 
-import { gameReducer } from './reducers/GameReducer';
 import { gamesLoaded } from './actions/actionCreators';
+import { appReducer } from './reducers/appReducer';
 
-const store = createStore(gameReducer);
+const storeUtil = require('./util/store');
+const store = storeUtil.getStore(appReducer);
 
 const triggerLoaded = function(result) {
   let games = JSON.parse(result);
@@ -43,9 +44,8 @@ export default class Boardgames extends React.Component {
   render() {
     return (
     <div>
-      <h2>{this.state.message}</h2>
       <ul>
-        {this.state.games.map((game) => <li key={game.id}><GameItem id={game.id} name={game.name}/></li>)}
+        {this.state.games.map((game) => <li className={styles.games} key={game.id}><GameItem id={game.id} name={game.name}/></li>)}
       </ul>
     </div>
     );

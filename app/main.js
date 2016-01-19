@@ -7,5 +7,5 @@ import { appReducer } from './reducers/appReducer'
 const targetEl = document.getElementById('root')
 
 ReactDOM.render(
-    <App message="foo bar"/>, targetEl
+    <App message="Loading..."/>, targetEl
 );

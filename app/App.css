@@ -1,9 +1,25 @@
 .app {
-  background-color: green;
-  height: 50px;
-  border: 1px solid blue;
+  background-color: lightgray;
+  height: 60px;
 }
 
+.header {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.controls {
+  float: right;
+}
+
+.controlsitems {
+  margin: 5px;
+}
+
+.games {
+  list-style-type: none;
+  font-weight: bold;
+}
 .bap {
   background-color: red;
   height: 25px;
