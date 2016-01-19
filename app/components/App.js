@@ -4,11 +4,11 @@ import React from 'react';
 import { render } from 'react-dom'
 import Boardgames from './Boardgames.js';
 import { createStore } from 'redux'
-import styles from './App.css';
-import { appReducer } from './reducers/appReducer';
-import { newMessage, resetMessage } from './actions/actionCreators';
+import styles from '../App.css';
+import { appReducer } from '../reducers/appReducer';
+import { newMessage, resetMessage } from '../actions/actionCreators';
 
-const storeUtil = require('./util/store');
+const storeUtil = require('../util/store');
 
 const store = storeUtil.getStore(appReducer);
 

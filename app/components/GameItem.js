@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { render } from 'react-dom'
-import styles from './App.css';
-import { appReducer } from './reducers/appReducer';
-import { gameInfoLoaded, newMessage, loading } from './actions/actionCreators';
+import styles from '../App.css';
+import { appReducer } from '../reducers/appReducer';
+import { gameInfoLoaded, newMessage, loading } from '../actions/actionCreators';
 
-const storeUtil = require('./util/store');
+const storeUtil = require('../util/store');
 
 const store = storeUtil.getStore(appReducer);
 

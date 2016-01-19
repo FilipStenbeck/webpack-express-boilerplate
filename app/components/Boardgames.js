@@ -4,14 +4,14 @@ const request = require('browser-request');
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-import styles from './App.css';
+import styles from '../App.css';
 import App from './App.js';
 import GameItem from './GameItem.js';
 
-import {loading, gamesLoaded } from './actions/actionCreators';
-import { appReducer } from './reducers/appReducer';
+import {loading, gamesLoaded } from '../actions/actionCreators';
+import { appReducer } from '../reducers/appReducer';
 
-const storeUtil = require('./util/store');
+const storeUtil = require('../util/store');
 const store = storeUtil.getStore(appReducer);
 
 const triggerLoaded = function(result) {
