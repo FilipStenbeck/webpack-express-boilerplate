@@ -5,7 +5,6 @@ import { createStore } from 'redux'
 import { appReducer } from './reducers/appReducer'
 
 const targetEl = document.getElementById('root')
-const store = createStore(appReducer);
 
 ReactDOM.render(
     <App message="foo bar"/>, targetEl

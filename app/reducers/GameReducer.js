@@ -2,34 +2,32 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-  message: ''
+  message: '',
+  games: []
 };
 
-let appReducer = function appReducer(state, action) {
+let gameReducer = function gameReducer(state, action) {
   if (typeof state === 'undefined') {
     return initialState;
   }
 
   switch (action.type) {
 
-  case types.NEW_MESSAGE: {
+  case types.GAMES_LOADED: {
     return Object.assign({}, state, {
-      message: action.payload
-    });
+      message: 'Popular games',
+      games: action.payload
+    })
   }
-
-  case types.RESET_MESSAGE: {
-    return Object.assign({}, initialState);
-  }
-
   default: {
     return Object.assign({}, state, {
-      message: state.message
+      message: state.message,
+      games: state.games
     });
   }
   }
 }
 
 module.exports = {
-  appReducer
+  gameReducer
 }

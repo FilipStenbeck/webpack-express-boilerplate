@@ -5,14 +5,23 @@ const newMessage = (message) => {
     type: types.NEW_MESSAGE,
     payload: message
   }
-}
-const resetMessage = (message) => {
+};
+
+const resetMessage = () => {
   return {
     type: types.RESET_MESSAGE
   }
-}
+};
+
+const gamesLoaded = (games) => {
+  return {
+    type: types.GAMES_LOADED,
+    payload: games
+  }
+};
 
 module.exports = {
-  newMessage: newMessage,
-  resetMessage: resetMessage
+  newMessage,
+  resetMessage,
+  gamesLoaded
 }
