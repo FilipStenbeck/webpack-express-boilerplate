@@ -12,12 +12,12 @@ export default class GameInfo extends React.Component {
   render() {
     return (
      <div>
-       <p>
-       <a href="http://boardgamegeek.com/boardgame/188834" target="_blank">
-          <img src={this.props.game.thumbnail} title={this.props.game.name}></img>
-       </a>
-     </p>
+      <p>
+       <img src={this.props.game.thumbnail} title={this.props.game.name}></img>
+      </p>
+      <p>
        {this.props.game.description}
+       </p>
     </div>
     );
   }
