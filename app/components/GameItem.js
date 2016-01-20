@@ -6,6 +6,8 @@ import styles from '../App.css';
 import { appReducer } from '../reducers/appReducer';
 import { gameInfoLoaded, newMessage, loading } from '../actions/actionCreators';
 
+var utils = require('../util/utils');
+
 const request = require('browser-request');
 const he = require('he');
 const storeUtil = require('../util/store');
@@ -19,6 +21,13 @@ export default class GameItem extends React.Component {
   getGameInfo(event) {
     store.dispatch(loading());
 
+    function cleanGameData(data) {
+      return Object.assign({}, data, {
+        description: he.decode(data.description),
+        link: utils.getUrlFromTag(data.link)
+      });
+    }
+
     function scrollToTop(scrollDuration) {
       var scrollStep = -window.scrollY / (scrollDuration / 15);
       var scrollInterval = setInterval(function() {
@@ -29,13 +38,13 @@ export default class GameItem extends React.Component {
           }
         }, 15);
     }
+
     scrollToTop(500);
     request('http://mini-geek-service.appspot.com/gameinfo?id=' + event.target.id + '&alt=json', function(er, response, body) {
       if (er) {
         throw er;
       }
-      let game = JSON.parse(body).result[0];
-      game.description = he.decode(game.description);
+      let game = cleanGameData(JSON.parse(body).result[0]);
       store.dispatch(newMessage(game.name));
       store.dispatch(gameInfoLoaded(game));
     });

@@ -13,7 +13,7 @@ export default class GameInfo extends React.Component {
     return (
      <div>
       <p>
-       <img src={this.props.game.thumbnail} title={this.props.game.name}></img>
+       <a href={this.props.game.link} target="parent"><img src={this.props.game.thumbnail} title={this.props.game.name}></img></a>
       </p>
       <p>
        {this.props.game.description}

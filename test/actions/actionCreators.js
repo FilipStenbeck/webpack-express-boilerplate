@@ -11,11 +11,4 @@ describe('actions', () => {
     }
     expect(actions.newMessage(payload)).toEqual(expectedAction)
   });
-
-  it('should reset an action', () => {
-    const expectedAction = {
-      type: types.RESET_MESSAGE
-    }
-    expect(actions.resetMessage()).toEqual(expectedAction)
-  });
 })
